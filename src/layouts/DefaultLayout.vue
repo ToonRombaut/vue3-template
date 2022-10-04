@@ -7,6 +7,7 @@ const appStore = useAppStore();
 import {useSmoothScroll} from "@/composables/smoothScrollComposable"
 //components
 import MobileNav from "@/components/layout/nav/mobile/MobileNav.vue"
+import Footer from "@/components/layout/Footer.vue"
 //refs
 const contentRef = ref(null);
 //hooks
@@ -27,8 +28,9 @@ const isTablet = computed(() => appStore.isTablet);
     <div class="default-layout">
         <MobileNav v-if="isTablet" />
         <div asscroll-container>
-            <div ref="contentRef" class="content">
+            <div ref="contentRef" class="layout-content">
                 <router-view />
+                <Footer/>
             </div>
         </div>
     </div>
@@ -39,11 +41,11 @@ const isTablet = computed(() => appStore.isTablet);
 .default-layout{
   height:100vh;
   overflow:hidden;
-  .content{
+  .layout-content{
     max-width: $max-content-width;
     width:100%;
 
-    margin-top: $mobile-nav-height;
+    padding-top: $mobile-nav-height;
     @include screen-sm{
     margin-top: $desktop-nav-height;
 

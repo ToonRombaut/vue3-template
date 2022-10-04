@@ -34,7 +34,7 @@ const routeWatcher = watch(path, () => open.value = false)
 
 <template>
     <div class="mobile-nav" :class="{open}"> 
-        <div class="content">
+        <div class="content mobile-menu-content">
             <div class="nav-bar">
                 <Hamburger v-model="open" />
                 <div class="logo-container">
@@ -81,10 +81,7 @@ const routeWatcher = watch(path, () => open.value = false)
     &.open{
         height:100%;
     }
-    .content{
-        max-width: $max-content-width;
-        width:85%;
-        margin: 0 auto;
+    .mobile-menu-content{
         display:flex;
         flex-direction: column;
         .nav-bar{
